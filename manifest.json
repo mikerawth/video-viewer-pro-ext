@@ -1,0 +1,41 @@
+{
+  "name": "Video Viewer Pro",
+  "version": "1.0.0",
+  "description": "Watch Youtube.com and Twitch.tv from an extension",
+  "permissions": ["activeTab"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.twitch.tv/*", "*://*.youtube.com/*"],
+      "js": ["contentScript.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_action": {
+    "default_icon": {
+      "16": "images/16px-video-camera.png",
+      "32": "images/32px-video-camera.png",
+      "48": "images/128px-video-camera.png",
+      "128": "images/128px-video-camera.png"
+    }
+  },
+  "commands": {
+    "toggle-video-view": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+E",
+        "mac": "Command+Shift+E"
+      },
+      "description": "Toggle Video View"
+    }
+  },
+  "icons": {
+    "16": "images/16px-video-camera.png",
+    "32": "images/32px-video-camera.png",
+    "48": "images/128px-video-camera.png",
+    "128": "images/128px-video-camera.png"
+  },
+  "manifest_version": 2
+}
